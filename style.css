@@ -1,0 +1,232 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Silkscreen&family=Ubuntu:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
+:root {
+  --dark: #374151;
+  --darker: #1f2937;
+  --darkest: #111827;
+  --grey: #6b7280;
+  --pink: #ec4899;
+  --purple: #8b5cf6;
+  --light: #eee;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  height: 100vh;
+  scroll-behavior: smooth;
+  background: url(image/FONDPP3.jpg) no-repeat fixed;
+  background-size: cover;
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  align-items: center;
+}
+
+#droit {
+  color: var(--grey);
+  font-size: 0.7em;
+}
+
+.hamburger {
+  --hm-width: 3em;
+  --hm-height: 0.4em;
+  --spacing: calc(var(--hm-width) / 4);
+
+  width: var(--hm-width);
+  height: var(--hm-height);
+  background-color: var(--light);
+  position: relative;
+
+  transition: transform 0.8s ease-in-out;
+
+  z-index: 100;
+}
+
+.hamburger::after,
+.hamburger::before {
+  content: "";
+  width: 50%;
+  height: inherit;
+  background-color: var(--purple);
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.8s ease-in-out;
+}
+
+.hamburger::after {
+  top: calc(-1 * var(--spacing));
+}
+
+.hamburger::before {
+  top: var(--spacing);
+  left: 50%;
+}
+
+.close.hamburger::before,
+.close.hamburger::after {
+  left: 50%;
+  transform: translate(-50%) rotate(-450deg);
+  background-color: var(--pink);
+}
+
+.close.hamburger {
+  transform: rotate(45deg);
+  background-color: var(--pink);
+}
+
+nav {
+  position: absolute;
+  background-color: var(--darkest);
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transform: scaleX(0);
+  transform-origin: left center;
+  opacity: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.2s ease-in;
+}
+
+.reveal-nav {
+  transform: scaleX(1);
+  opacity: 1;
+  z-index: 99;
+}
+
+.menu {
+  list-style: none;
+}
+
+.menu-item {
+  color: var(--light);
+  text-decoration: none;
+  font-size: calc(1.5rem + 2vw);
+
+  opacity: 0;
+  transform: translate(-20em);
+  display: block;
+  transition: transform 0.8s ease-in-out, opacity 0.3s ease-in;
+}
+.menu-item:hover {
+  text-shadow: 0 0 8px var(--purple);
+  color: var(--darkest);
+}
+
+.menu li + li {
+  margin-top: 1em;
+}
+
+.reveal-items .menu-item {
+  transform: translate(0);
+  opacity: 1;
+  padding: 15px;
+}
+
+.reveal-items li:nth-last-child(1) .menu-item {
+  transition-delay: 0.1s;
+}
+.reveal-items li:nth-last-child(2) .menu-item {
+  transition-delay: 0.2s;
+}
+.reveal-items li:nth-last-child(3) .menu-item {
+  transition-delay: 0.3s;
+}
+.reveal-items li:nth-last-child(4) .menu-item {
+  transition-delay: 0.4s;
+}
+.reveal-items li:nth-last-child(5) .menu-item {
+  transition-delay: 0.5s;
+}
+
+.acceuil h2 {
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  font-size: 6em;
+  color: var(--dark);
+  margin: 20px;
+  margin-top: 100px;
+}
+
+h2::before {
+  content: attr(data-text);
+  position: absolute;
+  color: var(--purple);
+
+  overflow: hidden;
+  animation: animate 4.5s ease-in-out infinite;
+}
+@keyframes animate {
+  0%,
+  10%,
+  100% {
+    width: 0;
+  }
+  70%,
+  90% {
+    width: 100%;
+  }
+}
+
+.acceuil {
+  display: flex;
+  align-items: center;
+}
+
+.acceuil h3 {
+  color: var(--light);
+  font-family: "Poppins", sans-serif;
+  font-size: 6em;
+  padding: 10px;
+  margin: 20px;
+  margin-top: 100px;
+}
+
+.text p {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5em;
+  color: var(--light);
+  margin: 30px;
+  margin-top: 130px;
+}
+
+@media all and (max-width: 980px) {
+  .acceuil h3 {
+    font-size: 4em;
+  }
+  .acceuil h2 {
+    font-size: 4em;
+  }
+}
+@media all and (max-width: 580px) {
+  .acceuil h3 {
+    font-size: 3em;
+  }
+  .acceuil h2 {
+    font-size: 3em;
+  }
+  .text p {
+    font-size: 1em;
+  }
+}

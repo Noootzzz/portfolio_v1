@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Silkscreen&family=Ubuntu:wght@300;400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+:root {
+	--dark: #374151;
+	--darker: #1F2937;
+	--darkest: #111827;
+	--grey: #6B7280;
+	--pink: #EC4899;
+	--purple: #8B5CF6;
+	--light: #EEE;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  height: 100vh;
+  scroll-behavior: smooth;
+  background: var(--darker);
+  color: var(--light);
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  align-items: center;
+}
+
+#droit {
+  color: var(--grey);
+  font-size: 0.7em;
+}
+
+.hamburger {
+  --hm-width: 3em;
+  --hm-height: 0.4em;
+  --spacing: calc(var(--hm-width) / 4);
+
+  width: var(--hm-width);
+  height: var(--hm-height);
+  background-color: var(--light);
+  position: relative;
+
+  transition: transform 0.8s ease-in-out;
+
+  z-index: 100;
+}
+
+.hamburger::after,
+.hamburger::before {
+  content: "";
+  width: 50%;
+  height: inherit;
+  background-color: var(--purple);
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.8s ease-in-out;
+}
+
+.hamburger::after {
+  top: calc(-1 * var(--spacing));
+}
+
+.hamburger::before {
+  top: var(--spacing);
+  left: 50%;
+}
+
+.close.hamburger::before,
+.close.hamburger::after {
+  left: 50%;
+  transform: translate(-50%) rotate(-450deg);
+  background-color: var(--pink);
+}
+
+.close.hamburger {
+  transform: rotate(45deg);
+  background-color: var(--pink);
+}
+
+nav {
+  position: absolute;
+  background-color: var(--darkest);
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transform: scaleX(0);
+  transform-origin: left center;
+  opacity: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.2s ease-in;
+}
+
+.reveal-nav {
+  transform: scaleX(1);
+  opacity: 1;
+  z-index: 99;
+}
+
+.menu {
+  list-style: none;
+}
+
+.menu-item {
+  color: var(--light);
+  text-decoration: none;
+  font-size: calc(1.5rem + 2vw);
+
+  opacity: 0;
+  transform: translate(-20em);
+  display: block;
+  transition: transform 0.8s ease-in-out, opacity 0.3s ease-in;
+}
+.menu-item:hover {
+  text-shadow: 0 0 8px var(--purple);
+  color: var(--darkest);
+}
+
+.menu li + li {
+  margin-top: 1em;
+}
+
+.reveal-items .menu-item {
+  transform: translate(0);
+  opacity: 1;
+  padding: 15px;
+}
+
+.reveal-items li:nth-last-child(1) .menu-item {
+  transition-delay: 0.1s;
+}
+.reveal-items li:nth-last-child(2) .menu-item {
+  transition-delay: 0.2s;
+}
+.reveal-items li:nth-last-child(3) .menu-item {
+  transition-delay: 0.3s;
+}
+.reveal-items li:nth-last-child(4) .menu-item {
+  transition-delay: 0.4s;
+}
+.reveal-items li:nth-last-child(5) .menu-item {
+  transition-delay: 0.5s;
+}
+
+.section {
+  display: flex;
+  background-color: var(--darker);
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 300px;
+  height: 300px;
+  padding: 5px;
+  margin: 10px;
+  position: relative;
+  border-radius: 7px;
+  perspective: 2000px;
+}
+.card:hover .card-front {
+  transform: rotateY(180deg);
+}
+.card:hover .card-back {
+  transform: rotateY(360deg);
+  box-shadow: 0 0 20px var(--purple);
+}
+.card-front, .card-back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 0;
+  border-radius: 7px;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  transition: 0.5s;
+}
+.card-front {
+  background-color: var(--purple);
+  color: var(--light);
+}
+.card-back {
+  background-color: var(--purple);
+  color: #FFFFFF;
+  transform: rotateY(180deg);
+  text-shadow: 0 0 2px var(--darkest), 0 0 2px var(--darkest), 0 0 2px var(--darkest), 0 0 2px var(--darkest), 0 0 2px var(--darkest), 0 0 2px var(--darkest), 0 0 2px var(--darkest), 0 0 2px var(--darkest), 0 0 2px var(--darkest), 0 0 2px var(--darkest), 0 0 2px var(--darkest), 0 0 2px var(--darkest), 0 0 2px var(--darkest), 0 0 2px var(--darkest), 0 0 2px var(--darkest), 0 0 2px var(--darkest), 0 0 2px var(--darkest), 0 0 2px var(--darkest), 0 0 2px var(--darkest), 0 0 2px var(--darkest);
+}
+
+a{
+  text-decoration:none;
+  margin: 20px;
+  color: var(--pink);
+}

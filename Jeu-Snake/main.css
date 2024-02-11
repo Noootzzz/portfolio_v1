@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+:root {
+	--dark: #374151;
+	--darker: #1F2937;
+	--darkest: #111827;
+	--grey: #6B7280;
+	--pink: #EC4899;
+	--purple: #8B5CF6;
+	--light: #EEE;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+header{
+	padding: 2rem 1rem;
+	align-items: center;
+	justify-content: center;
+}
+header h1{
+	font-family: 'Poppins', sans-serif;
+	color: var(--pink);
+	text-align: center;
+}
+
+header button{
+	background-color: var(--darkest);
+	padding: 15px;
+	border-radius: 20px;
+}
+
+header button a{
+	text-decoration:none;
+	color: var(--pink);
+}
+
+body{
+	background-color: var(--darker);
+}
+
+.game{
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+}
+
+
